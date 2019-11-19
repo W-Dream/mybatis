@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://39.106.191.211:3306/test?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false&useSSL=false&allowMultiQueries=true
+    username: root
+    password: Whp/0620
+  redis:
+    host: 39.106.191.211
+    port: 6379
+    database: 8
+    password: root
+#  http:
+#    multipart:
+#      max-file-size: 128KB
+#      max-request-size: 128KB
+mybatis:
+  mapper-locations: classpath*:**.*/*.xml
+
+logging:
+  level:
+    com.sinosoft.mybatis.mapper: debug
