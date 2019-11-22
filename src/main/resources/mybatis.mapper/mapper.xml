@@ -3,13 +3,13 @@
 <mapper namespace="com.sinosoft.mybatis.mapper.StudentMapper">
 
     <update id="updateStudent" parameterType="java.util.Map">
-        <foreach item='value' index='key' collection='students.entrySet()' separator=';'>
+        <foreach item='student' index='id' collection='students' separator=';'>
             UPDATE student
             <set>
-                name=#{value}
+                name=#{student.name},birthday=#{student.birthday}
             </set>
             <where>
-                id = #{key}
+                id = #{id}
             </where>
         </foreach>
     </update>

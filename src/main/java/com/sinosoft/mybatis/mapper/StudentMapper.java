@@ -25,7 +25,7 @@ public interface StudentMapper {
     @DeleteProvider(type = StudentMapperProvider.class, method = "deleteStudent")
     int deleteStudent(@Param("ids") List<Integer> ids);
 
-    int updateStudent(@Param("students") Map<Integer, String> students);
+    int updateStudent(@Param("students") Map<Integer, Student> students);
 
     @Insert("insert into student (name,birthday) values (#{student.name},#{student.birthday})")
     int scheduledSave(@Param("student") Student student);

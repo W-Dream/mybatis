@@ -6,9 +6,11 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -27,6 +29,7 @@ public class StudentCtrl {
     @PostMapping("save")
     @ApiOperation(value = "新增", httpMethod = "POST")
     public String saveStudent(@RequestBody List<Student> students) {
+
         int saveResult = studentService.saveStudent(students);
         if (saveResult == -1) {
             return "新增失败";
@@ -53,7 +56,7 @@ public class StudentCtrl {
 
     @PostMapping("update")
     @ApiOperation(value = "更新", httpMethod = "POST")
-    public String updateStudent(@RequestBody Map<Integer, String> students) {
+    public String updateStudent(@RequestBody Map<Integer, Student> students) {
         int updateResult = studentService.updateStudent(students);
         if (updateResult == -1) {
             return "更新失败";
